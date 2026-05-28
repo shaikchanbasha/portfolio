@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import profileImg from "../assets/profile_photo.png";
+import { FaGithub, FaLinkedin, FaDownload } from "react-icons/fa";
 type HeroProps = {
   darkMode: boolean;
 };
@@ -62,19 +63,25 @@ function Hero({ darkMode }: HeroProps) {
               className="whitespace-nowrap px-4 md:px-6 py-2.5 md:py-3 rounded-xl bg-cyan-500 text-slate-900 font-semibold
              hover:bg-cyan-400 transition-all duration-300 shadow-lg hover:shadow-cyan-500/30"
             >
-              View Projects
+              <div className="flex items-center gap-2">
+                <FaGithub />
+                <span>View Projects</span>
+              </div>
             </motion.a>
 
             {/* Secondary */}
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="/Chanbasha_Shaik_Resume.pdf"
+              href={`${import.meta.env.BASE_URL}Chanbasha_Shaik_Resume.pdf`}
               download
               className="whitespace-nowrap px-4 md:px-6 py-2.5 md:py-3 rounded-xl border border-cyan-400 text-cyan-400
              hover:bg-cyan-400/10 transition-all duration-300"
             >
-              Download Resume
+              <div className="flex items-center gap-2">
+                <FaDownload />
+                <span>Download Resume</span>
+              </div>
             </motion.a>
 
             {/* Ghost */}
@@ -85,7 +92,10 @@ function Hero({ darkMode }: HeroProps) {
               className="whitespace-nowrap px-4 md:px-6 py-2.5 md:py-3 rounded-xl text-slate-500 hover:text-cyan-400
               transition-all duration-300"
             >
-              Contact Me
+              <div className="flex items-center gap-2">
+                <FaLinkedin />
+                <span>Contact Me</span>
+              </div>
             </motion.a>
           </div>
         </div>
@@ -104,13 +114,7 @@ function Hero({ darkMode }: HeroProps) {
               hover:scale-105 transition-all duration-500
               ${darkMode ? "bg-slate-800" : "bg-slate-200"}`}
             >
-              <motion.img
-                animate={{ y: [0, -8, 0] }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
+              <img
                 src={profileImg}
                 alt="Profile"
                 className="w-full h-full object-cover object-[center_5%] scale-125"

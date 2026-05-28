@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
 
 type ContactProps = {
   darkMode: boolean;
@@ -38,25 +39,29 @@ function Contact({ darkMode }: ContactProps) {
         </p>
 
         <div className="space-y-4">
-          <motion.p
+          <motion.div
             variants={{
               hidden: { opacity: 0, y: 25 },
               visible: { opacity: 1, y: 0 },
             }}
-            className={darkMode ? "text-slate-300" : "text-slate-700"}
+            className={`flex items-center justify-center gap-2 text-slate-300
+              ${darkMode ? "text-slate-300" : "text-slate-700"}`}
           >
-            📧 chanbashaprofile@gmail.com
-          </motion.p>
+            <FaEnvelope />
+            <span>chanbashaprofile@gmail.com</span>
+          </motion.div>
 
-          <motion.p
+          <motion.div
             variants={{
               hidden: { opacity: 0, y: 25 },
               visible: { opacity: 1, y: 0 },
             }}
-            className={darkMode ? "text-slate-300" : "text-slate-700"}
+            className={`flex items-center justify-center gap-2 text-slate-300
+              ${darkMode ? "text-slate-300" : "text-slate-700"}`}
           >
-            📱 +91 9491644008
-          </motion.p>
+            <FaPhone />
+            <span>+91 9491644008</span>
+          </motion.div>
 
           <div className="flex justify-center gap-4 mt-6">
             <motion.a
@@ -66,7 +71,10 @@ function Contact({ darkMode }: ContactProps) {
               target="_blank"
               className="bg-cyan-500 hover:bg-cyan-400 hover:scale-105 transition-all duration-300 text-slate-900 px-5 py-2 rounded-lg font-medium"
             >
-              GitHub
+              <div className="flex items-center gap-2">
+                <FaGithub />
+                <span>GitHub</span>
+              </div>
             </motion.a>
 
             <motion.a
@@ -80,7 +88,10 @@ function Contact({ darkMode }: ContactProps) {
                   : "border-slate-400 text-slate-900"
               }`}
             >
-              LinkedIn
+              <div className="flex items-center gap-2">
+                <FaLinkedin />
+                <span>LinkedIn</span>
+              </div>
             </motion.a>
           </div>
         </div>

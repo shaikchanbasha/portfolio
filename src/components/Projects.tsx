@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { FaGithub, FaArrowRight } from "react-icons/fa";
 
 type ProjectsProps = {
   darkMode: boolean;
@@ -83,7 +84,11 @@ function Projects({ darkMode }: ProjectsProps) {
                 href={project.github}
                 className="text-cyan-400 hover:text-cyan-300 transition-colors duration-300"
               >
-                GitHub →
+                <div className="flex items-center gap-2">
+                  <FaGithub />
+                  <span>GitHub</span>
+                  <FaArrowRight />
+                </div>
               </motion.a>
             </div>
           ))}
